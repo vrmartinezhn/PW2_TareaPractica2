@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:f="jakarta.faces.core"
+      xmlns:p="primefaces">
+
+<h:head>
+    <title>Cajero Automatico</title>
+</h:head>
+
+<h:body>
+    <div class="card">
+        <h:form>
+            <p:growl id="msgs" showDetail="true" skipDetailIfEqualsSummary="true"/>
+
+            <p:fieldset legend="Ingrese sus datos">
+
+                <div class="card">
+                    <div class="grid ui-fluid">
+                        <div class="col-12 md:col-4">
+                            <div class="ui-inputgroup">
+                                <div class="ui-inputgroup-addon"><i class="pi pi-user"></i></div>
+                                <p:inputText placeholder="Username"/>
+                            </div>
+                        </div>
+
+                        <div class="col-12 md:col-4">
+                            <div class="ui-inputgroup">
+                                <div class="ui-inputgroup-addon">$</div>
+                                <p:inputText placeholder="Price"/>
+                                <div class="ui-inputgroup-addon">.00</div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 md:col-4">
+                            <div class="ui-inputgroup">
+                                <div class="ui-inputgroup-addon">www</div>
+                                <p:inputText placeholder="Website"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <p:commandButton type="button" value="Submit" />
+
+            </p:fieldset>
+
+        </h:form>
+    </div>
+
+</h:body>
+</html>
