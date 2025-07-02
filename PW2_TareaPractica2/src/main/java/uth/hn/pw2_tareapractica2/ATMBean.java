@@ -1,8 +1,10 @@
 package uth.hn.pw2_tareapractica2;
 
 import jakarta.enterprise.context.SessionScoped;
+import jakarta.faces.context.FacesContext;
 import jakarta.inject.Named;
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +29,7 @@ public class ATMBean implements Serializable{
         return "depositos.xhtml?faces-redirect=true";
     }
 
-    public void redireccionRetiro (){
-
+    public String redireccionRetiro (){
+        return "retiros.xhtml?faces-redirect=true";
     }
 }
