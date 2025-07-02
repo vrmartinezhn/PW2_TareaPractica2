@@ -39,8 +39,8 @@
                             </div>
                         </div>
                     </div>
-                    <p:commandButton type="button" value="Depositos" style="margin-right: 2rem; min-width:10rem"/>
-                    <p:commandButton type="button" value="Retiros" style="min-width:10rem"/>
+                    <p:commandButton type="button" action="#{atmBean.redireccionDeposito()}" value="Depositos" style="margin-right: 2rem; min-width:10rem"/>
+                    <p:commandButton type="button" action="#{atmBean.redireccionRetiro()}" value="Retiros" style="min-width:10rem"/>
                 </p:fieldset>
             </h:form>
         </div>
