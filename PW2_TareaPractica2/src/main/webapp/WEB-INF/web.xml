@@ -17,6 +17,6 @@
     </welcome-file-list>
     <context-param>
         <param-name>primefaces.THEME</param-name>
-        <param-value>material-indigo-light</param-value>
+        <param-value>vela-blue</param-value>
     </context-param>
 </web-app>

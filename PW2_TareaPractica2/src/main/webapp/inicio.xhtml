@@ -11,23 +11,27 @@
 </h:head>
 
 <h:body>
+
+    <p:outputPanel style="text-align: center; margin-bottom: 2rem;">
+        <h2 style="color: #007ad9; font-weight: bold;">Cajero Automático</h2>
+    </p:outputPanel>
+
     <div class="card">
-        <p:panelGrid columns="1" layout="grid" styleClass="showcase-text-align-center">
-            <h:form>
+        <div style="width: 100%; display: flex; justify-content: center;">
+            <h:form style="width: 400px;">
                 <p:growl id="msgs" showDetail="true" skipDetailIfEqualsSummary="true"/>
 
                 <p:fieldset legend="Ingrese sus datos">
-
                     <div class="card">
                         <div class="grid ui-fluid">
-                            <div class="col-12 md:col-4">
+                            <div class="col-12 md:col-4" style="margin-bottom: 1rem;">
                                 <div class="ui-inputgroup">
                                     <div class="ui-inputgroup-addon"><i class="pi pi-wallet"></i></div>
                                     <p:inputText placeholder="Número de Cuenta"/>
                                 </div>
                             </div>
 
-                            <div class="col-12 md:col-4">
+                            <div class="col-12 md:col-4" style="margin-bottom: 1rem;">
                                 <div class="ui-inputgroup">
                                     <div class="ui-inputgroup-addon"><i class="pi pi-key"></i></div>
                                     <p:inputText placeholder="Pin de Seguridad"/>
@@ -35,47 +39,11 @@
                             </div>
                         </div>
                     </div>
-                    <p:commandButton type="button" value="Submit" />
+                    <p:commandButton type="button" value="Depositos" style="margin-right: 2rem; min-width:10rem"/>
+                    <p:commandButton type="button" value="Retiros" style="min-width:10rem"/>
                 </p:fieldset>
             </h:form>
-        </p:panelGrid>
+        </div>
     </div>
-
-    <div class="card">
-        <p:panelGrid style="margin-top:20px" layout="tabular" columns="0">
-            <p:row>
-                <p:column></p:column>
-                <p:column>
-                    <h:form>
-                        <p:growl id="msgs" showDetail="true" skipDetailIfEqualsSummary="true"/>
-
-                        <p:fieldset legend="Ingrese sus datos">
-
-                            <div class="card">
-                                <div class="grid ui-fluid">
-                                    <div class="col-12 md:col-4">
-                                        <div class="ui-inputgroup">
-                                            <div class="ui-inputgroup-addon"><i class="pi pi-wallet"></i></div>
-                                            <p:inputText placeholder="Número de Cuenta"/>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-12 md:col-4">
-                                        <div class="ui-inputgroup">
-                                            <div class="ui-inputgroup-addon"><i class="pi pi-key"></i></div>
-                                            <p:inputText placeholder="Pin de Seguridad"/>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <p:commandButton type="button" value="Submit" />
-                        </p:fieldset>
-                    </h:form>
-                </p:column>
-                <p:column></p:column>
-            </p:row>
-        </p:panelGrid>
-    </div>
-
 </h:body>
 </html>
