@@ -1,8 +1,10 @@
 package uth.hn.pw2_tareapractica2;
 
 import jakarta.enterprise.context.SessionScoped;
+import jakarta.faces.application.FacesMessage;
 import jakarta.faces.context.FacesContext;
 import jakarta.inject.Named;
+import org.primefaces.PrimeFaces;
 
 import java.io.IOException;
 import java.io.Serializable;
@@ -72,6 +74,7 @@ public class ATMBean implements Serializable{
         if(cuenta != null){
             this.cuenta.setSaldo(this.cuenta.getSaldo() + this.deposito);
             this.deposito = 0;
+            mostrarMensaje("Deposito ingresado exitosamente", FacesMessage.SEVERITY_INFO);
         }
     }
 
@@ -80,8 +83,14 @@ public class ATMBean implements Serializable{
             if (this.cuenta.getSaldo() > this.retiro) {
                 this.cuenta.setSaldo(this.cuenta.getSaldo() - this.retiro);
                 this.retiro = 0;
+                mostrarMensaje("Retiro procesado exitosamente", FacesMessage.SEVERITY_INFO);
             }
         }
+    }
+
+    private void mostrarMensaje(String mensaje, FacesMessage.Severity tipo) {
+        FacesMessage message = new FacesMessage(tipo, mensaje, null);
+        PrimeFaces.current().dialog().showMessageDynamic(message);
     }
 
     public Cuenta getCuenta() {
