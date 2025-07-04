@@ -10,40 +10,53 @@
     <title>Cajero Automatico</title>
 </h:head>
 
-<h:body>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+</style>
 
-    <p:outputPanel style="text-align: center; margin-bottom: 2rem;">
-        <h2 style="color: #007ad9; font-weight: bold;">Cajero Automático</h2>
-    </p:outputPanel>
+<h:body style="height: 100dvh; display: grid; align-items: center">
 
-    <div class="card">
-        <div style="width: 100%; display: flex; justify-content: center;">
-            <h:form style="width: 400px;">
-                <p:growl id="msgs" showDetail="true" skipDetailIfEqualsSummary="true"/>
+    <div>
+        <p:outputPanel style="text-align: center; margin-bottom: 2rem;">
+            <h2 style="color: #fff; font-weight: bold;">Cajero Automático</h2>
+        </p:outputPanel>
 
-                <p:fieldset legend="Ingrese sus datos">
-                    <div class="card">
-                        <div class="grid ui-fluid">
-                            <div class="col-12 md:col-4" style="margin-bottom: 1rem;">
-                                <div class="ui-inputgroup">
-                                    <div class="ui-inputgroup-addon"><i class="pi pi-wallet"></i></div>
-                                    <p:inputText placeholder="Número de Cuenta"/>
+        <div class="card">
+            <div style="width: 100%; display: flex; justify-content: center;">
+                <h:form style="width: 400px;">
+                    <p:growl id="msgs" showDetail="true" skipDetailIfEqualsSummary="true"/>
+
+                    <p:fieldset legend="Ingrese sus datos">
+                        <div class="card">
+                            <div class="grid ui-fluid">
+                                <div class="col-12 md:col-4" style="margin-bottom: 1rem;">
+                                    <div class="ui-inputgroup">
+                                        <div class="ui-inputgroup-addon"><i class="pi pi-wallet"></i></div>
+                                        <p:inputText placeholder="Número de Cuenta" value="#{atmBean.numCuenta}"/>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="col-12 md:col-4" style="margin-bottom: 1rem;">
-                                <div class="ui-inputgroup">
-                                    <div class="ui-inputgroup-addon"><i class="pi pi-key"></i></div>
-                                    <p:inputText placeholder="Pin de Seguridad"/>
+                                <div class="col-12 md:col-4" style="margin-bottom: 1rem;">
+                                    <div class="ui-inputgroup">
+                                        <div class="ui-inputgroup-addon"><i class="pi pi-key"></i></div>
+                                        <p:inputText  type="password" placeholder="Pin de Seguridad" value="#{atmBean.pinCuenta}"/>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <h:commandButton action="#{atmBean.redireccionDeposito}" value="Depositos" style="margin-right: 2rem; min-width:10rem; background: dodgerblue"/>
-                    <h:commandButton action="#{atmBean.redireccionRetiro}" value="Retiros" style="min-width:10rem; background: dodgerblue"/>
-                </p:fieldset>
-            </h:form>
+                        <h:commandButton action="#{atmBean.redireccionDeposito}" value="Depositos" style="margin-right: 2.7rem; min-width:10rem; background: dodgerblue"/>
+                        <h:commandButton action="#{atmBean.redireccionRetiro}" value="Retiros" style="min-width:10rem; background: dodgerblue"/>
+                        <h:commandButton action="#{atmBean.cerrarCuenta}" value="Quitar Cuenta" style="margin-top: 2rem; min-width:22.7rem; background: red"/>
+
+                    </p:fieldset>
+                </h:form>
+            </div>
         </div>
     </div>
+
 </h:body>
 </html>
