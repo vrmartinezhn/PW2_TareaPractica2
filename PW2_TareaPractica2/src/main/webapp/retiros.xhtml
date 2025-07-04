@@ -10,31 +10,52 @@
     <title>Retiros</title>
 </h:head>
 
-<h:body style="margin: 2rem">
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+</style>
 
-    <p:outputPanel style="margin-bottom: 2rem; display:flex">
-        <!--<h2 style="color: #fff; font-weight: bold; display: flex; flex: 50%">Depositos</h2>-->
-        <h2 style="color: lawngreen; font-weight: bold; display: flex; flex: 50%; justify-content: end">Saldo: 500 lps</h2>
-    </p:outputPanel>
+<h:body style="height: 100dvh; display: grid; align-items: center">
+
 
     <div style="display: flex; justify-content: center;">
-        <p:card style="width: 25rem; margin-bottom: 2em;">
-            <f:facet name="title">
-                Retiro
-            </f:facet>
+        <f:facet name="title">
+            Retiro
+        </f:facet>
 
-            <h:form>
-                    <div class="field col-12 md:col-4">
-                        <p:outputLabel for="input1" value="Monto" style="margin-right: 2rem;"/>
-                        <p:inputNumber id="input1" value="#{inputNumberView.input1}" modifyValueOnWheel="false" />
-                    </div>
 
-                <div style="display: flex; justify-content: center; margin-top: 2rem">
-                    <p:commandButton type="button" value="Retirar" styleClass="ui-button-success" style="background: #52c234; color: white;"/>
+
+        <h:form style="width: 400px; transform: scale(1.2)">
+            <h1 style="text-align: center; font-family: 'Segoe UI'; padding-bottom: 1rem">Retiro</h1>
+
+            <p:growl id="msgs" showDetail="true" skipDetailIfEqualsSummary="true"/>
+
+
+            <p:fieldset legend="#{atmBean.cuenta.nombre}" style="position: relative">
+                <div style="position: absolute; top: -3.5rem; right: 1rem; background: white; padding: 1rem; color: green; font-weight: bold; border-radius: 0.5rem">
+                    <p:outputLabel value="#{atmBean.cuenta.saldo} Lps."/>
                 </div>
-            </h:form>
+                <div class="card" >
 
-        </p:card>
+                    <div class="grid ui-fluid">
+                        <div class="col-12 md:col-4" style="margin-bottom: 1rem;">
+                            <div class="ui-inputgroup">
+                                <div class="ui-inputgroup-addon" style="font-weight: bold">$</div>
+                                <p:inputNumber placeholder="Ingrese Cantidad a Retirar" value="#{atmBean.retiro}"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p:commandButton action="#{atmBean.retirar}" value="Retirar" update="@form" style=" min-width:22.7rem; background: dodgerblue; color: #fff;"/>
+                <hr style="width: 22.7rem; margin: 1rem 0rem"/>
+                <h:commandButton action="#{atmBean.volver}" value="Volver" style="min-width:22.7rem; background: #FDC830; color: black"/>
+            </p:fieldset>
+        </h:form>
+
+
     </div>
 
 </h:body>

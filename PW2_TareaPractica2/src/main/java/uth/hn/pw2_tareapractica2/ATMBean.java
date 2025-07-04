@@ -17,6 +17,7 @@ public class ATMBean implements Serializable{
     private String numCuenta;
     private  String pinCuenta;
     private double deposito;
+    private double retiro;
 
     public ATMBean() {
         this.cuentas = new ArrayList<>();
@@ -24,6 +25,7 @@ public class ATMBean implements Serializable{
         this.numCuenta = "";
         this.pinCuenta = "";
         this.deposito = 0;
+        this.retiro = 0;
         cuentas.add(new Cuenta("11111111", "111111","Alejandro Ruíz", 500));
         cuentas.add(new Cuenta("11111112", "111112","María Núñez", 1000));
         cuentas.add(new Cuenta("11111113", "111113","Rosa Soto", 1500));
@@ -37,6 +39,7 @@ public class ATMBean implements Serializable{
     }
 
     public String redireccionRetiro (){
+        obtenerCuenta();
         return "retiros.xhtml?faces-redirect=true";
     }
 
@@ -72,6 +75,15 @@ public class ATMBean implements Serializable{
         }
     }
 
+    public void retirar (){
+        if(cuenta != null){
+            if (this.cuenta.getSaldo() > this.retiro) {
+                this.cuenta.setSaldo(this.cuenta.getSaldo() - this.retiro);
+                this.retiro = 0;
+            }
+        }
+    }
+
     public Cuenta getCuenta() {
         return cuenta;
     }
@@ -103,4 +115,14 @@ public class ATMBean implements Serializable{
     public void setDeposito(double deposito) {
         this.deposito = deposito;
     }
+
+    public double getRetiro() {
+        return retiro;
+    }
+
+    public void setRetiro(double retiro) {
+        this.retiro = retiro;
+    }
+
+
 }
