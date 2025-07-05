@@ -19,7 +19,7 @@
 </style>
 
 <h:body style="height: 100dvh; display: grid; align-items: center">
-    <p:megaMenu orientation="horizontal" autoDisplay="false">
+    <p:megaMenu orientation="horizontal" autoDisplay="false" style="position: fixed; top:0; width: 100%">
         <p:submenu label="Opciones" icon="pi pi-fw pi-bars">
             <p:column>
                 <p:submenu label="Ayuda">
@@ -59,7 +59,7 @@
                         </div>
                         <h:commandButton action="#{atmBean.redireccionDeposito}" value="Depositos" style="margin-right: 2.7rem; min-width:10rem; background: dodgerblue"/>
                         <h:commandButton action="#{atmBean.redireccionRetiro}" value="Retiros" style="min-width:10rem; background: dodgerblue"/>
-                        <h:commandButton action="#{atmBean.cerrarCuenta}" value="Quitar Cuenta" style="margin-top: 2rem; min-width:22.7rem; background: red"/>
+                        <h:commandButton action="#{atmBean.cerrarCuenta}" value="Cerrar Cuenta" style="margin-top: 2rem; min-width:22.7rem; background: red"/>
 
                     </p:fieldset>
                 </h:form>
