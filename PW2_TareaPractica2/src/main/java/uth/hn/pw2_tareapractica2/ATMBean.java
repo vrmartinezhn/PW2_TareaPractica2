@@ -67,15 +67,25 @@ public class ATMBean implements Serializable{
     public void cerrarCuenta(){
         this.numCuenta = "";
         this.pinCuenta = "";
+        if(this.cuenta != null) {
+            mostrarMensaje("Cuenta Cerrada ", FacesMessage.SEVERITY_INFO);
+        }
         this.cuenta = null;
     }
 
     public void depositar (){
         if(cuenta != null){
-            this.cuenta.setSaldo(this.cuenta.getSaldo() + this.deposito);
-            this.deposito = 0;
-            mostrarMensaje("Deposito ingresado exitosamente", FacesMessage.SEVERITY_INFO);
+            if(this.deposito > 0){
+                this.cuenta.setSaldo(this.cuenta.getSaldo() + this.deposito);
+                this.deposito = 0;
+                mostrarMensaje("Deposito Realizado ", FacesMessage.SEVERITY_INFO);
+                return;
+            }
+            mostrarMensaje("Cantidad Inválida", FacesMessage.SEVERITY_ERROR);
+            return;
         }
+
+        mostrarMensaje("Cuenta no Detectada", FacesMessage.SEVERITY_ERROR);
     }
 
     public void retirar (){
@@ -83,13 +93,18 @@ public class ATMBean implements Serializable{
             if (this.cuenta.getSaldo() > this.retiro) {
                 this.cuenta.setSaldo(this.cuenta.getSaldo() - this.retiro);
                 this.retiro = 0;
-                mostrarMensaje("Retiro procesado exitosamente", FacesMessage.SEVERITY_INFO);
+                mostrarMensaje("Retiro Realizado   ", FacesMessage.SEVERITY_INFO);
+                return;
             }
+
+            mostrarMensaje("Cantidad Inválida  ", FacesMessage.SEVERITY_ERROR);
+            return;
         }
+        mostrarMensaje("Cuenta no Detectada", FacesMessage.SEVERITY_ERROR);
     }
 
     private void mostrarMensaje(String mensaje, FacesMessage.Severity tipo) {
-        FacesMessage message = new FacesMessage(tipo, mensaje, null);
+        FacesMessage message = new FacesMessage(tipo, "Notificación", mensaje);
         PrimeFaces.current().dialog().showMessageDynamic(message);
     }
 
