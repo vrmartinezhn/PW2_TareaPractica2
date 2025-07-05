@@ -10,8 +10,16 @@
    <title>Ayuda</title>
 </h:head>
 
-<h:body>
-   <p:megaMenu orientation="horizontal" autoDisplay="false">
+<style>
+   *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+   }
+</style>
+
+<h:body style="display: grid; place-items: center; height: 100dvh">
+   <p:megaMenu orientation="horizontal" autoDisplay="false" style="position: fixed; top:0; width: 100%">
       <p:submenu label="Opciones" icon="pi pi-fw pi-bars">
          <p:column>
             <p:submenu label="Página Principal">
@@ -21,9 +29,7 @@
       </p:submenu>
    </p:megaMenu>
 
-   <f:view>
-      <h:outputLabel value="Hello, world"/>
-   </f:view>
+   <img src="img/Portada%20PW2_2doParcial_TrabajoGrupal_page-0001.jpg" style="width: 400px"></img>
 </h:body>
 
 

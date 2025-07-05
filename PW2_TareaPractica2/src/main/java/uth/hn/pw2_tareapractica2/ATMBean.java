@@ -28,11 +28,11 @@ public class ATMBean implements Serializable{
         this.pinCuenta = "";
         this.deposito = 0;
         this.retiro = 0;
-        cuentas.add(new Cuenta("11111111", "111111","Alejandro Ruíz", 500));
-        cuentas.add(new Cuenta("11111112", "111112","María Núñez", 1000));
-        cuentas.add(new Cuenta("11111113", "111113","Rosa Soto", 1500));
-        cuentas.add(new Cuenta("11111114", "111114","Rodolfo Palma", 2000));
-        cuentas.add(new Cuenta("11111115", "111115","Miguel Flores", 2500));
+        cuentas.add(new Cuenta("12341234", "1234","Alejandro Ruíz", 500));
+        cuentas.add(new Cuenta("56785678", "5678","María Núñez", 1000));
+        cuentas.add(new Cuenta("22442244", "2244","Rosa Soto", 1500));
+        cuentas.add(new Cuenta("11331133", "1133","Rodolfo Palma", 2000));
+        cuentas.add(new Cuenta("55665566", "5566","Miguel Flores", 2500));
     }
 
     public String redireccionDeposito (){
